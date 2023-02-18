@@ -8,6 +8,11 @@
 		<OutputType>WinExe</OutputType>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net6.0-windows'">
+		<PublishSingleFile>true</PublishSingleFile>
+	</PropertyGroup>
+
+
 	<ItemGroup>
 	  <ProjectReference Include="..\lib\control\xControl.Simple.csproj" />
 	</ItemGroup>
