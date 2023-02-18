@@ -22,7 +22,7 @@ namespace ColorPicker
     {
         public MainWindow()
         {
-            InitializeComponent();
+            
         }
     }
 }

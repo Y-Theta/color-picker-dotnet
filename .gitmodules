@@ -1,0 +1,3 @@
+[submodule "control"]
+	path = lib/control
+	url = git@github.com:Y-Theta/xControls.Simple.git
