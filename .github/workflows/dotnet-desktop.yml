@@ -69,7 +69,7 @@ jobs:
         
     - name: submodule
       shell: pwsh
-      run: pull.ps1
+      run: ${{ github.workspace }}/pull.ps1
 
     # Install the .NET Core workload
     - name: Install .NET Core
