@@ -68,9 +68,8 @@ jobs:
         fetch-depth: 0
         
     - name: submodule
-      uses: ./
-      with:
-        command: pwsh run pull.ps1
+      shell: pwsh
+      run: pull.ps1
 
     # Install the .NET Core workload
     - name: Install .NET Core
