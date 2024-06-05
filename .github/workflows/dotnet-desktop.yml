@@ -84,3 +84,7 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
 
+    - name: View Dir
+      shell: pwsh
+      run: Get-ChildItem .
+
