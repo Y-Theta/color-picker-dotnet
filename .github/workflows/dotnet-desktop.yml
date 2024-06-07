@@ -50,13 +50,10 @@ jobs:
       run: msbuild $env:Solution_Name -t:Rebuild -p:Configuration=$env:Configuration
       env:
         Configuration: ${{ matrix.configuration }}
-        
-    - name: Install zip
-      uses: montudor/action-zip@v1
 
     - name: Zip output
-      run: zip -qq -r bin.zip dist bin
-      working-directory: ./ColorPicker
+      shell: pwsh
+      run: Compress-Archive -Path ./ColorPicker/bin/* -Destination ./ColorPicker/bin.zip
     
     - name: View Dir
       shell: pwsh
