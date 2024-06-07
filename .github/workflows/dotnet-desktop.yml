@@ -4,13 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-
   build:
-
-    strategy:
-      matrix:
-        configuration: [Debug, Release]
-
     runs-on: windows-latest  # For a list of available runner types, refer to
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
     permissions: write-all
@@ -42,14 +36,10 @@ jobs:
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
-      run: msbuild $env:Solution_Name -t:Restore -p:Configuration=$env:Configuration
-      env:
-        Configuration: ${{ matrix.configuration }}
+      run: msbuild $env:Solution_Name -t:Restore -p:Configuration=Release
         
     - name: Build the application
-      run: msbuild $env:Solution_Name -t:Rebuild -p:Configuration=$env:Configuration
-      env:
-        Configuration: ${{ matrix.configuration }}
+      run: msbuild $env:Solution_Name -t:Rebuild -p:Configuration=Release
 
     - name: Zip output
       shell: pwsh
