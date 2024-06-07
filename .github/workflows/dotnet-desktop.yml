@@ -51,6 +51,13 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
         
+    - name: Install zip
+      uses: montudor/action-zip@v1
+
+    - name: Zip output
+      run: zip -qq -r bin.zip dist bin
+      working-directory: ./ColorPicker
+    
     - name: View Dir
       shell: pwsh
       run: Get-ChildItem ./ColorPicker
